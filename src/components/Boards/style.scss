@@ -1,0 +1,12 @@
+﻿.boards{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+
+    .board_child{
+        background-color: red;
+        height: 100%;
+        text-align: center;
+    }
+
+}
