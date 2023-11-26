@@ -1,13 +1,10 @@
 
-import { Boards } from "./components/Boards"
+import Routing from "./components/Routing"
 
 function App() {
 
   return (
-   
-    <div className="container">
-      <Boards />
-    </div>
+    <Routing />
   
   )
 }
