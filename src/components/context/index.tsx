@@ -1,6 +1,5 @@
 import { AppStateProvider } from "./AppState";
 import { ModalProvider } from "./ModalContext";
-
 interface ProviderProps {
   children: React.ReactNode[] | React.ReactNode;
 }
@@ -8,10 +7,8 @@ interface ProviderProps {
 export function Providers({ children }: ProviderProps) {
   return (
     <AppStateProvider>
-          <ModalProvider>
-              {children}
-          </ModalProvider>
-        </AppStateProvider>
+        <ModalProvider>{children}</ModalProvider>
+      </AppStateProvider>
 
   );
 }

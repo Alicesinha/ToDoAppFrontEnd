@@ -7,5 +7,5 @@ export enum ActionsEnum {
 
   /** TASKS */
   GET_TASKS = "get-tasks",
-
+  POST_TASK_SUCCESS = "post-task-success",
 }
