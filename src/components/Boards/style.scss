@@ -1,12 +1,61 @@
-﻿.boards{
-    height: 50vh;
-    display: flex;
-    justify-content: space-around;
+﻿.custom_container{
+    background-color: #eee;
+    .boards{
+        min-height: 50vh;
+        display: flex;
+        justify-content: space-around;
+    
+        .backGround_light{
+            background-color: #fff;
+            color: #333;
+            padding: 1.5vh;
+        }
 
-    .board_child{
-        background-color: red;
-        height: 100%;
-        text-align: center;
+        .backGround_blue{
+            background-color: #91E2F6;
+            color: #fff;
+            padding: 1.5vh;
+        }
+
+        .backGround_green{
+            background-color: #B7EFA1;
+            color: #333;
+            padding: 1.5vh;
+        }
+        .board_child{
+            height: 100%;
+            margin: 2vh;
+            border-radius: 5%;
+            text-align: center;
+            
+
+            .card_container{
+                flex-direction: column;
+                display: flex;
+                gap: 1vh;
+
+                .card{
+                    border: 1px solid #eee;
+                    .accordion-collapse{
+                        margin: 0.2em 0.1em;
+                        border-radius: 2%;
+                    }
+                    .collapse{
+                        
+                        border: 1px solid #eee;
+                        .accordion-body{
+                            background-color: #e7effc;
+                    
+                            p{
+                        
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
     }
-
 }
+
