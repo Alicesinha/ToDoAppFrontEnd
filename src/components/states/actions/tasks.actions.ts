@@ -11,8 +11,8 @@ export const getTasks = async (dispatch: (arg: IActions) => void | null) => {
         }
         
         const payload = await response.json();
-        if (payload) dispatch ({ type: ActionsEnum.GET_TASKS, payload });
-      
+        if (payload) dispatch({ type: ActionsEnum.GET_TASKS, payload });
+        
         
       } catch (error) {
         console.error('Fetch error:', error);

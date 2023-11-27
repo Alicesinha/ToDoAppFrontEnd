@@ -1,12 +1,12 @@
 ﻿import { ActionsEnum } from "../../enums/actions.enum";
 import { IActions } from "../../interfaces/actions";
-import { tasksDataInterface, tasksInterface } from "../../interfaces/tasks";
+import { tasksInterface } from "../../interfaces/tasks";
 
 
 
 export interface ITasksReducer{
     tasks: tasksInterface,
-    tasksData: tasksDataInterface[],
+    tasksData: tasksInterface[],
 }
 export const taskInitialState: ITasksReducer = {
     tasks: {} as tasksInterface,
@@ -24,7 +24,7 @@ export const tasksReducer = (  state: ITasksReducer = taskInitialState,
           }
         case ActionsEnum.GET_TASKS:
           return {
-            ...state, tasks:
+            ...state, tasksData:
               payload
           }
         default:

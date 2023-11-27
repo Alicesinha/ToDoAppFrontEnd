@@ -1,15 +1,11 @@
 ﻿import "./style.scss";
-import { toast } from "react-toastify";
-import { DefaultButton } from "../buttons/DefaultButton"; 
 import { getTasks } from "../states/actions/tasks.actions";
 import { useEffect } from "react";
 import { useAppState } from "../context/AppState";
 import { statusTaskEnum } from "../enums/statusTask.enum";
 import {
-  subTasksInterface,
+  subTasksInterface, tasksInterface,
 } from "components/interfaces/tasks";
-
-
 export function Boards() {
   const {
     state: {
@@ -22,21 +18,41 @@ export function Boards() {
     getTasks(dispatch);
   }, []);
 
+
   return (
     <section className="custom_container">
-      <div className="row">
+      <div className="row d-flex justify-content-center pt-3">
+        <div className="col-8">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Write the task title here"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+            >
+              Add task
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="col-12">
         <div className="boards">
           <div className="col-lg-3 board_child backGround_light">
             <h2>To Do</h2>
             <div className="card_container">
               {tasksData.map(
-                (item: any, index) =>
+                (item: tasksInterface, index) =>
                   statusTaskEnum.toDo === item.idStatus && (
                     <div
                     className="card accordion"
                     id={`accordionSubTask${index}`}
-                    key={item.idTask}
+                    key={`${item.idTask}`}
                   >
                     <div className="card-body">
                       <h5 className="card-title">{item.title}</h5>
@@ -61,6 +77,7 @@ export function Boards() {
                               className="accordion-collapse collapse show"
                               aria-labelledby="headingOne"
                               data-bs-parent={`accordionSubTask${index}`}
+                              key={`${subItem.idSubTask}`}
                             >
                               <div className="accordion-body">
                                 <p>
@@ -105,7 +122,7 @@ export function Boards() {
                       <div className="card-body">
                         <h5 className="card-title">{item.title}</h5>
                         <p className="card-text">{item.description}</p>
-                        <div className="accordion-item" key={item.subTask.idSubTask}>
+                        <div className="accordion-item" key={item.idTask}>
                           <h2 className="accordion-header" id="headingOne">
                             <button
                               className="accordion-button"
@@ -221,9 +238,6 @@ export function Boards() {
           </div>
         </div>
       </div>
-      </div>
- 
-
     </section>
   );
 }
