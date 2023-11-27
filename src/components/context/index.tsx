@@ -1,5 +1,5 @@
+import { AppStateProvider } from "./AppState";
 import { ModalProvider } from "./ModalContext";
-import { CookiesProvider } from "react-cookie";
 
 interface ProviderProps {
   children: React.ReactNode[] | React.ReactNode;
@@ -7,10 +7,11 @@ interface ProviderProps {
 
 export function Providers({ children }: ProviderProps) {
   return (
-    <CookiesProvider>
+    <AppStateProvider>
           <ModalProvider>
               {children}
           </ModalProvider>
-    </CookiesProvider>
+        </AppStateProvider>
+
   );
 }

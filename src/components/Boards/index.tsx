@@ -1,23 +1,19 @@
 ﻿import "./style.scss";
 import { toast } from "react-toastify";
-import { DefaultButton } from "../buttons/DefaultButton";
-<<<<<<< Updated upstream
-export function Boards() {
-  
-=======
-import { AcoesModal } from "../AcoesModal";
+import { DefaultButton } from "../buttons/DefaultButton"; 
 import { getTasks } from "../states/actions/tasks.actions";
 import { useEffect } from "react";
 import { useAppState } from "../context/AppState";
 import { statusTaskEnum } from "../enums/statusTask.enum";
 import {
   subTasksInterface,
-  tasksDataInterface,
 } from "components/interfaces/tasks";
+
+
 export function Boards() {
   const {
     state: {
-      tasks: { tasks, tasksData },
+      tasks: { tasksData },
     },
     dispatch,
   } = useAppState();
@@ -26,45 +22,9 @@ export function Boards() {
     getTasks(dispatch);
   }, []);
 
->>>>>>> Stashed changes
   return (
     <section className="custom_container">
-      <div className="row d-flex justify-content-center pt-3">
-        <div className="col-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Write the task title here"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
-            />
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-            >
-              Add task
-            </button>
-          </div>
-        </div>
-      </div>
-<<<<<<< Updated upstream
       <div className="row">
-      <div className="col-2">
-      <DefaultButton
-        // type="button"
-        // className="btn bg-secondary d-flex justify-content-around align-items-center my-2"
-        data-bs-toggle="modal"
-        data-bs-target="#test"
-        onClick={() => toast.success("Task created successfully")}
-      />
-       
-      </div>
-    </div>
-    </div>
-          </section>
-=======
       <div className="col-12">
         <div className="boards">
           <div className="col-lg-3 board_child backGround_light">
@@ -261,9 +221,9 @@ export function Boards() {
           </div>
         </div>
       </div>
+      </div>
+ 
 
-      <AcoesModal modalID="test" titleButton="test" descricao="test" />
     </section>
->>>>>>> Stashed changes
   );
 }
